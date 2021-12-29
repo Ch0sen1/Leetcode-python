@@ -12,9 +12,7 @@ class Solution:
             head = Node(insertVal, None)
             head.next = head
             return head
-        # if not head.next:
-        #     head.next = Node(insertVal, head)
-        #     return head
+
         # if current val < next node's val: 
         # Insert only if current val <= insertVal <= next node's val
         # if current val > next node's val:
@@ -23,10 +21,12 @@ class Solution:
         # so insert after head
         tmp = head
         while True:
+            ## when in the process
             if tmp.val < tmp.next.val:
                 if tmp.val <= insertVal <= tmp.next.val:
                     tmp.next = Node(insertVal, tmp.next)
                     return head
+            ## when reach to the end 
             if tmp.val > tmp.next.val:
                     if insertVal >= tmp.val or insertVal <= tmp.next.val:
                         tmp.next = Node(insertVal, tmp.next)
