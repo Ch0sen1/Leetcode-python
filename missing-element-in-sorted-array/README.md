@@ -1,3 +1,4 @@
+[Discussion Post (created on 2/0/2022 at 20:10)](https://leetcode.com/problems/missing-element-in-sorted-array/discuss/1663459/Python3-Easy-Understanding-with-explanation-Binary-Search)  
 <h2>1060. Missing Element in Sorted Array</h2><h3>Medium</h3><hr><div><p>Given an integer array <code>nums</code> which is sorted in <strong>ascending order</strong> and all of its elements are <strong>unique</strong> and given also an integer <code>k</code>, return the <code>k<sup>th</sup></code> missing number starting from the leftmost number of the array.</p>
 
 <p>&nbsp;</p>
