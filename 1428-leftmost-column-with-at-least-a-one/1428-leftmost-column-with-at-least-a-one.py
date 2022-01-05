@@ -9,21 +9,21 @@
 class Solution:
     def leftMostColumnWithOne(self, binaryMatrix: 'BinaryMatrix') -> int:
         rows, cols = binaryMatrix.dimensions()
-        res = cols
         
-        for row in range(rows):
-            l = 0
-            r = cols
-            while l < r:
-                mid = (l+r) // 2
-                if binaryMatrix.get(row, mid) < 1 :
-                    l = mid + 1
-                else:
-                    r = mid
-            res = min(res, l)
+        r = 0
+        c = cols - 1
+        res = -1
+        while r < rows and c >= 0:
+            mid = (r+c)//2
+            if binaryMatrix.get(r,c) == 1:
+                res = c
+                c -=1
+            else:
+                r += 1
+                
         
         
-        return res if res < cols else -1
+        return res 
             
             
                     
