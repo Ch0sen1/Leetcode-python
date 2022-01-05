@@ -12,8 +12,8 @@ class Solution:
             pre, midCandidate = self.findStrobogrammatic(n-2), evenMidCandidate
         premid = (n-1)//2
         res = []
-        for p in pre:
-            for c in midCandidate:
+        for c in midCandidate:
+            for p in pre:
                 res.append(p[:premid] + c + p[premid:])
         return res
         
