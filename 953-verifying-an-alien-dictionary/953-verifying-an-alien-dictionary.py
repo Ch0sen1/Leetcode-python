@@ -2,21 +2,20 @@ class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         
         orderdict = Counter()
+        new_word = []
         for i, o in enumerate(order):
             orderdict[o] = i
             
-        for i in range(len(words)-1):
-            w1 = words[i]
-            w2 = words[i+1]
+        for w in words:
+            new = []
+            for i in range(len(w)):
+                new.append(orderdict[w[i]])
+            new_word.append(new)
             
-            for j in range(len(w1)):
-                if j == len(w2):
-                    return False
-                
-                if w1[j] != w2[j]:
-                    if orderdict[w2[j]] < orderdict[w1[j]]:
-                        return False
-                    break
+        for w1, w2 in zip(new_word, new_word[1:]):
+            if w1 > w2:
+                return False
         return True
+            
             
         
