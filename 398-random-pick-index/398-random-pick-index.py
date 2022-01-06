@@ -1,16 +1,19 @@
 class Solution:
 
     def __init__(self, nums: List[int]):
-        self.dic = defaultdict(list)
-        for i, num in enumerate(nums):
-            self.dic[num].append(i)
+        self.nums = nums
         
 
     def pick(self, target: int) -> int:
-        if target in self.dic:
-            curList = self.dic[target]
-            index = randrange(0, len(curList))
-            return curList[index]
+        count = 0
+        res = None
+        for i, num in enumerate(self.nums):
+            if num == target:
+                count += 1
+                chance = random.randint(1, count)
+                if chance == count:
+                    res = i
+        return res
             
             
         
