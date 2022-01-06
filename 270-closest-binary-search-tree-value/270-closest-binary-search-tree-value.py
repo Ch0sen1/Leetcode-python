@@ -18,7 +18,7 @@ class Solution:
             self.closet = root.val
         if root.val > target:
             self.dfs(root.left, target)
-        elif root.val < target:
+        if root.val < target:
             self.dfs(root.right, target)
         
         return
