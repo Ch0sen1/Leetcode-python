@@ -1,17 +1,15 @@
 class Solution:
     def numFriendRequests(self, ages: List[int]) -> int:
-        c = Counter(ages)
+        ages.sort()
         res = 0
-        for age1, count1 in c.items():
-            for age2, count2 in c.items():
-                ## in range of the friend request, two people send two request to another people = 4
-                if age2 > 0.5 * age1 + 7 and (age2 <= age1):
-                    res += count1 * count2
-                    ## avoid duplicate calculation
-                    if age1 == age2:
-                        res -= count1
+        for age in ages:
+            l = bisect.bisect_right(ages, 0.5*age +7)
+            r = bisect.bisect_right(ages, age)
+            
+            res += max(0, (r - l) - 1)
         
         return res
+            
             
             
         
