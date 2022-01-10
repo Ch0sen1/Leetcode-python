@@ -3,24 +3,24 @@ class Solution:
         
         a = a[::-1]
         b = b[::-1]
-        res = ""
-        
-        length = max(len(a), len(b))
+        res = []
         
         i = 0
+        j = 0
         carry = 0
-        
-        while i < length or carry:
+        while i < len(a) or j < len(b) or carry:
             if i < len(a):
-                carry += ord(a[i]) - ord('0')
-            if i < len(b):
-                carry += ord(b[i]) - ord('0')
+                carry += int(a[i])
+                i +=1
                 
+            if j < len(b):
+                carry += int(b[j])
+                j +=1
+            
             total = carry % 2
-            res += str(total)
+            res.append(str(total))
             carry = carry // 2
-            i += 1
-            
-        return res[::-1]
-            
+        
+        return ''.join(res[::-1])
+        
         
