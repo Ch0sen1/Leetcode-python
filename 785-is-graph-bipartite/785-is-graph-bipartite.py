@@ -1,7 +1,6 @@
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         # i is itself, List[i] is its neighbors
-        color = 1
         dic = defaultdict()
         for i in range(len(graph)):
             if i not in dic:
