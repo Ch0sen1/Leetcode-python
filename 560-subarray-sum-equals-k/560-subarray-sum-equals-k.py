@@ -8,6 +8,7 @@ class Solution:
             total += num
             cnt += c[total - k]
             c[total] += 1
+            
         
         return cnt
             
