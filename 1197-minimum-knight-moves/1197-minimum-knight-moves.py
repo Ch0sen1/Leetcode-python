@@ -6,7 +6,7 @@ class Solution:
         
         fx = abs(fx)
         fy = abs(fy)
-        dirs = [(1,2),(2,1),(1,-2),(2,-1),(-1,2),(-2,1),(-1,-2),(-2,-1)]
+        dirs = [(1,2),(2,1),(1,-2),(2,-1),(-1,2),(-2,1)]
         
         q.append((0,0,0))
         
@@ -19,7 +19,6 @@ class Solution:
                 if (nx, ny) not in visited and -1 <= nx <= fx+2 and -1 <= ny <= fy+2:
                     visited.add((nx,ny))
                     q.append((nx, ny, step+1))
-        
         return -1
                 
                 
