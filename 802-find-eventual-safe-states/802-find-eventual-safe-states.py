@@ -16,13 +16,17 @@ class Solution:
         
         while q:
             node = q.popleft()
-            res.append(node)
             
             for neigh in in_degree[node]:
                 out_degree[neigh] -= 1
                 if out_degree[neigh] == 0:
                     q.append(neigh)
-        
-        return sorted(res)
+                    
+                    
+        for i in range(len(graph)):
+            if out_degree[i] == 0:
+                res.append(i)
+            
+        return res
                 
             
