@@ -25,10 +25,10 @@ class Solution:
             
             if arr[index] not in visited_group:
                 for neigh in dic[arr[index]]:
-                    if 0 <= neigh < len(arr) and neigh not in visited_index:
+                    if neigh not in visited_index:
                         q.append((neigh, step+1))
-                        visited_group.add(arr[index])
                         visited_index.add(neigh)
+                visited_group.add(arr[index])
             
         return -1
             
