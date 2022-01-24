@@ -1,19 +1,18 @@
 class Logger:
 
     def __init__(self):
-        self.dic = defaultdict()
+        self.win = deque()
         
 
     def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
-        if message in self.dic.keys():
-            if timestamp < self.dic[message]:
-                return False
-            else:
-                self.dic[message] = timestamp + 10
-                return True
-        else:
-            self.dic[message] = timestamp + 10
-            return True
+        while self.win and timestamp - self.win[0][0] >= 10:
+            self.win.popleft()
+        
+        if any(message in msg for t, msg in self.win):
+            return False
+        
+        self.win.append([timestamp, message])
+        return True
         
 
 
