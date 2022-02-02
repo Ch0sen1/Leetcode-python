@@ -4,7 +4,9 @@ class Solution:
         have = Counter()
         res = []
         
-        l = r = 0
+        l = 0
+        r = 0
+        
         while r < len(s):
             have[s[r]] += 1
             while r - l + 1 > len(p):
@@ -12,11 +14,13 @@ class Solution:
                 if have[s[l]] == 0:
                     del have[s[l]]
                 l += 1
-            if have == need:
+            if need == have:
                 res.append(l)
+            
             r += 1
-        
         return res
+            
+            
             
             
         
