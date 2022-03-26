@@ -12,5 +12,5 @@ class Solution:
             else:
                 r = mid
         
-        return r if nums[r] == target else -1
+        return l if nums[l] == target else -1
         
