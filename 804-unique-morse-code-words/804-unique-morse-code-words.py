@@ -11,7 +11,7 @@ class Solution:
             
             c[code] += 1
         
-        return len(c)
+        return len(c.values())
                 
         
         
